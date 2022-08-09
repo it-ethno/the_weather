@@ -1,0 +1,607 @@
+* {
+    margin: 0;
+    box-sizing: border-box;
+}
+
+a {
+    color: rgb(250, 250, 250);
+}
+
+body {
+    
+}
+h2 {
+    padding: 10px 20px;
+    font-weight: 500;
+    font-size: 130%;
+    margin-bottom: 5px;
+}
+
+h3 {
+    margin-bottom: 0px;
+    padding-bottom: 0px;
+}
+
+h4 {
+    margin-bottom: 5px;
+    margin-top: 15px;
+    font-weight: 600;
+}
+
+input[type='color'] {
+    border: none;
+    border-radius: 5px;
+    outline: none;
+}
+
+input[type='range'] {
+    background-image: linear-gradient(90deg, rgba(30, 30, 30, 0.0), rgba(30, 30, 30, 1.0));
+}
+
+.authorImage {
+    width: 40px;
+    height: 40px;
+    border-radius: 0 5px 0 0;
+    margin-left: auto;
+}
+
+.authorInfo {
+    display: flex;
+    background-color: rgba(30, 30, 30, 1.0);
+    cursor: pointer;
+}
+
+.authorName {
+    padding: 3px 10px;
+}
+
+.currentInfo {
+    font-size: 90%;
+}
+
+.disabledLabel {
+    color: rgb(180, 180, 180);
+}
+
+.eveIcon {
+
+}
+
+.feelsLike {
+    font-size: 50%;
+}
+
+.forecastDate {
+    font-size: 120%;
+    margin-bottom: 5px;
+}
+
+.forecastDay {
+    width: 160px;
+    border-right: 1px solid rgba(150, 150, 150, 0.4);
+    font-size: 90%;
+    padding: 0px 20px 20px;
+}
+
+.forecastDay:last-child {
+    border-right: none;
+}
+
+.forecastTemperature {
+    font-size: 140%;
+}
+
+.imageHistoryDescription {
+    padding: 5px 10px;
+    width: 100%;
+}
+
+.imageHistoryItem {
+    display: flex;
+    height: 180px;
+    border-radius: 10px;
+    width: 400px;
+    min-width: 400px;
+}
+
+.imageHistoryItemImage{
+    border-radius: 10px 0 0 10px;
+    max-width: 250px;
+    cursor: pointer;
+}
+
+.imageHistoryItemInfo {
+    color:rgb(250, 250, 250);
+    background-color: rgba(30, 30, 30, 0.8);
+    padding: 0;
+    font-size: 90%;
+    border-radius: 0 10px 10px 0;
+    overflow: hidden;
+    width: 100%;
+}
+
+.labelColor {
+    margin-right: 10px;
+}
+
+.labelCheckbox {
+    margin-left: 10px;
+}
+
+.labelSelect {
+    margin-right: 10px;
+}
+
+.linkNoUnder {
+    text-decoration: none;
+}
+
+.locationCountry {
+    font-size: 60%;
+}
+
+.locationHistoryItem {
+    padding: 10px 10px;
+    color: rgb(220, 220, 220);
+    border-bottom: 1px solid rgb(180, 180, 180);
+    cursor: pointer;
+    display: flex;
+    z-index: 100;
+}
+
+.locationHistoryItem:hover {
+    background-color: rgba(120, 120, 120, 0.8);
+}
+
+.locationItemGeo {
+    margin-left: auto;
+}
+
+.minTemp {
+    font-size: 70%;
+}
+
+.rightSideSetting {
+    margin-left: auto;
+}
+
+.settingsDiv {
+    display: flex;
+}
+
+.settingsInput {
+    margin-bottom: 10px;
+}
+
+.sunIcon {
+    width: 20px;
+    height: 20px;
+}
+
+.temp {
+    font-size: 130%;
+}
+
+.todayHour {
+    width: 150px;
+    border-left: 1px solid rgba(150, 150, 150, 0.4);
+    font-size: 90%;
+    padding: 0px 20px 20px;
+}
+
+.todayTemperature {
+    font-size: 140%;
+}
+
+.todayTime {
+    font-size: 120%;
+    margin-bottom: 5px;
+}
+
+
+#allInfo {
+    position: absolute;
+    top: 15vh;
+    left: 10vw;
+    right: 10vw;
+}
+
+#alltainer {
+    position: fixed;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    background-image: url('./images/spinner.svg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+#closeImagesBtn {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    padding: 5px 8px;
+    color: rgb(250, 250, 250);
+    background-color: rgba(150, 150, 150, 0.4);
+    font-size: 130%;
+    border-radius: 7px;
+    cursor: pointer;
+    z-index: 100;
+}
+#currentDescription {
+    margin-bottom: 10px;
+    font-size: 130%;
+}
+
+#currentForecast {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin: 0 20px;
+}
+
+#currentIcon {
+    opacity: 0.90;
+}
+
+#currentLocation {
+    font-size: 250%;
+    display: inline-block;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+
+#currentMeteors {
+    margin-left: 10px;
+}
+
+#currentNow {
+    font-size: 120%;
+}
+
+#currentSunrise {
+    margin-top: 20px;
+    display: inline-block;
+}
+
+#currentSunset {
+    margin-bottom: 10px;
+}
+
+#currentSymbol {
+    position: absolute;
+    right: 80px;
+    top: 90px;
+}
+
+#currentTemperature {
+    font-size: 200%;
+    margin: 0;
+}
+
+#currentWeather {
+    color: rgb(250, 250, 250);    
+    position: relative;
+    min-height: 200px;
+    width: 500px;
+    min-width: 360px;
+    background-color: rgba(30, 30, 30, 0.6);
+    padding: 20px 30px;
+    border-radius: 10px;
+}
+
+#currentWeather:hover {
+    background-color: rgba(30, 30, 30, 0.8);
+}
+
+#footer {
+    position: fixed;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    text-align: center;
+    background-color: rgba(30, 30, 30, 0.8);
+    color: rgb(250, 250, 250);
+    font-size: 90%;
+    padding: 8px 40px 10px;
+    opacity: 0.3;
+    min-height: 52px;
+}
+
+#footer:hover {
+    opacity: 1.0;
+}
+
+#imageCaption {
+    padding: 0 50px;
+}
+
+#imageControls {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    padding: 5px 15px;
+    color: rgb(250, 250, 250);
+    background-color: rgba(150, 150, 150, 0.4);
+    font-size: 130%;
+    border-radius: 7px;
+    cursor: pointer;
+}
+
+#historyCount {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    height: 30px;
+    width: 20px;
+    background-color: rgba(30, 30, 30, 0.5);
+    color: rgba(250, 250, 250, 0.5);
+    padding: 3px 10px;
+    font-size: 150%;
+    border-radius: 0 0 5px 0;
+}
+
+#imageControls:hover {
+    background-color: rgba(120, 120, 120, 0.8);
+}
+
+#images {
+    
+    padding: 5vh 5vw;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: space-around;
+}
+
+#imagesBtn {
+    position: absolute;
+    top:10px;
+    left: 10px;
+    padding: 5px 8px;
+    color: rgb(250, 250, 250);
+    background-color: rgba(150, 150, 150, 0.4);
+    font-size: 130%;
+    border-radius: 7px;
+    cursor: pointer;
+    z-index: 100;
+}
+
+#imagesBtn:hover {
+    background-color: rgba(120, 120, 120, 0.8);
+}
+
+#inputTainer {    
+    padding: 10px;
+    background-color: rgba(30, 30, 30, 0.9);
+    color: rgb(250, 250, 250);
+    border-radius: 10px 10px 0 0;
+    display: flex;
+    width: 450px;
+}
+
+#locationBtn {
+    padding: 10px 20px;
+    margin-left: 10px;
+    outline: 3px solid transparent;
+}
+
+#locationHistory {
+    padding: 10px 20px;
+    background-color: rgba(30, 30, 30, 0.8);
+    border-radius: 0 0 10px 10px;
+    z-index: 2;
+}
+
+#locationInput {
+    font-size: 130%;
+    color: rgb(70, 70, 70);
+    padding: 5px 10px;
+    border-radius: 5px;
+    width: 380px;
+}
+
+#locationInputTainer {
+    background-color: rgba(30, 30, 30, 0.8);
+    position: absolute;
+    top: 48px;
+    left: 15px;
+    border-radius: 10px;
+    z-index: 10;
+}
+
+#map {
+    height: 200px;
+    width: 300px;
+}
+
+#menu {
+    position: fixed;
+    top: 50px;
+    right: 0px;
+    width: 300px;
+    min-height: 400px;
+    visibility: hidden;
+    background-color: rgba(30, 30, 30, 0.8);
+    color: rgb(250, 250, 250);
+    border-radius: 10px 0 0 10px;
+    padding: 10px 20px;
+    z-index: 11;
+}
+
+#menuButton {
+    position: fixed;
+    top: 0px;
+    right: 0px;
+    width: 30px;
+    height: 30px;
+    background-color: rgba(30, 30, 30, 0.4);
+    color: rgba(250, 250, 250, 0.5);
+    border-radius: 0 0 0 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+#menuButton:hover {
+    color: rgba(250, 250, 250, 1.0);
+    background-color: rgba(30, 30, 30, 0.9);
+}
+
+#meteor {
+    color: rgb(250, 250, 250);
+}
+
+#nowAndForecast {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    gap: 20px;
+}
+
+#outerImages {
+    position: fixed;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    background-color: rgba(50, 50, 50, 0.9);
+    z-index: 50;
+}
+
+#outerImages h1 {
+    text-align: center;
+    color: rgb(250, 250, 250);
+    padding-top: 20px;
+}
+
+#theNext4 {
+    margin-left: auto;
+    background-color: rgba(30, 30, 30, 0.4);
+    color: rgb(250, 250, 250);  
+    border-radius: 10px;
+}
+
+#theNext4:hover {
+    background-color: rgba(30, 30, 30, 0.8);
+}
+
+#theNext24 {
+    background-color: rgba(30, 30, 30, 0.5);
+    color: rgb(250, 250, 250);
+    border-radius: 10px;
+    z-index: 0;
+    margin-top: 20px;
+}
+
+#theNext24:hover {
+    background-color: rgba(30, 30, 30, 0.8);
+}
+
+#today {
+    display: flex;
+    padding: 0 20px;
+}
+
+@media screen and (max-width: 1350px) {
+    
+    .todayHour {
+        width: 130px;
+    }
+    #allInfo {
+        top: 10vh;
+        left: 5vw;
+        right: 5vw;
+    }
+    #theNext4 {
+        margin-left: 0;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    h2 {
+        padding: 10px 15px;
+        margin-bottom: 0px;
+    }
+    .eveIcon {
+        display: none;
+    }
+    .forecastDescription {
+        display: none;
+    }
+    .forecastRain {
+        display: none;
+    }
+    .forecastDay {
+        min-width: 80px;
+        width: 80px;
+        padding: 0px 5px 10px;
+    }
+    .minTemp {
+        display: none;
+    }
+    .todayDesc {
+        display: none;
+    }
+    .todayHour {
+        padding: 0px 5px 5px;
+    }
+    .todayHour:nth-child(even) {
+        display: none;
+    }
+    .todayPop {
+        display: none;
+    }
+    #allInfo {
+        top: 5vh;
+        left: 5vw;
+        right: 5vw;
+    }
+    #currentLocation {
+        font-size: 200%;
+        z-index: 10;
+    }
+    #currentForecast {
+        
+    }
+    #currentTemperature {
+        font-size: 160%;
+    }
+    #currentSymbol {
+        right: 10px;
+        top: 60px;
+        z-index: 1;
+    }
+    #currentWeather {
+        padding: 10px 15px;
+    }
+    #footer {
+        background-color: rgba(30, 30, 30, 0.9);
+        opacity: 0.9;
+    }
+    #inputTainer {
+        width: 250px;
+    }
+    #locationInputTainer {
+        width: 80vw;
+    }
+    #menu {
+        background-color: rgba(30, 30, 30, 0.9);
+    }
+    #nowAndForecast {
+        gap: 10px;
+    }
+    #theNext24 {
+        margin-top: 10px;
+    }
+    #theNext4 {
+        margin-left: 0;
+        width: 100%;
+    }
+}

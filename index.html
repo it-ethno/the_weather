@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Das Wetter</title>
+    <link rel="stylesheet" href="./styles.css">
+    <script src="index.js" defer></script>
+    <script src="https://kit.fontawesome.com/8b7dd93a81.js" crossorigin="anonymous"></script>
+
+</head>
+<body>
+    <div id="alltainer">
+        <div id="allInfo">
+            <div id="nowAndForecast">
+                <div id="currentWeather">
+                    <div id="currentNow"></div>
+                    <div id="currentLocation" title="Klicken, um einen neuen Ort einzugeben"></div>   
+                    <div id="currentTemperature"></div>            
+                    <div id="currentDescription"></div>
+                    <div id="currentFeelsLike" class="currentInfo"></div>
+                    <div id="currentMinMax" class="currentInfo"></div>
+                    <div id="currentHumidity" class="currentInfo"></div>
+                    <div id="currentPressure" class="currentInfo"></div>
+                    <div id="currentPop" class="currentInfo"></div>
+                    <div id="currentSunrise"></div>
+                    <div id="currentSunset"></div>
+                    <div id="meteors"><i class="fa-solid fa-meteor" id="meteor"></i><span id="currentMeteors">Heute sind keine gefährlichen Asterioden unterwegs!</span></div>
+                    <div id="currentSymbol"><img id="currentIcon" src="" alt=""></div>
+                </div>
+                <div id="theNext4">
+                    <h2 data-i18n-key="Die kommenden Tage">Die kommenden Tage</h2>
+                    <div id="currentForecast"></div>
+                </div>
+            </div>
+            <div id="theNext24">
+                <h2 data-i18n-key="Die nächsten 24 Stunden">Die nächsten 24 Stunden</h2>
+                <div id="today"></div>
+            </div>
+        </div>
+        <div id="footer">
+            <div id="imagesBtn"><i class="fa-solid fa-images"></i></div>
+            <div id="imageCaption"></div>
+            <div id="imageControls" title="Stop/Start Hintergrundbilder"><i class="fa-solid fa-pause"></i></div>
+        </div>
+        <div id="menuButton"><i class="fa-solid fa-gear"></i></div>
+        <div id="menu">
+            <h3 data-i18n-key="Einstellungen">Einstellungen</h3>
+            <h4 data-i18n-key="Anzeige">Anzeige</h4>
+            <div class="settingsInput">
+                <input id="show24" type="checkbox" class="controlledInput" checked />
+                <label for="show24" class="labelCheckbox" data-i18n-key="Zeige Tagesdetails">Zeige Tagesdetails</label>
+            </div>
+            <div class="settingsInput">
+                <input id="showMap" type="checkbox" class="controlledInput" disabled />
+                <label for="showMap" class="labelCheckbox disabledLabel" data-i18n-key="Zeige Wetterkarte">Zeige Wetterkarte</label>
+            </div>
+            <div class="settingsInput">
+                <input id="show4" type="checkbox" class="controlledInput" checked />
+                <label for="show4" class="labelCheckbox" data-i18n-key="Zeige kommende Tage">Zeige kommende Tage</label>
+            </div>
+            <div class="settingsInput">
+                <input id="showMeteors" type="checkbox" class="controlledInput" checked />
+                <label for="showMeteors" class="labelCheckbox" data-i18n-key="Zeige Meteoritenwarnung">Zeige Meteoritenwarnung</label>
+            </div>
+            <div class="settingsInput">
+                <input id="showApod" type="checkbox" class="controlledInput" disabled />
+                <label for="showApod" class="labelCheckbox disabledLabel" data-i18n-key="Zeige NASA Bild des Tages">Zeige NASA Bild des Tages</label>
+            </div>
+
+            <h4 data-i18n-key="Unsplash Bildhintergrund">Unsplash Bildhintergrund</h4>
+            <div class="settingsInput">
+                <input id="showUnsplashBackground" type="checkbox" class="controlledInput" checked />
+                <label for="showUnsplashBackground" class="labelCheckbox" data-i18n-key="Nutze Unsplash Hintergrundbilder">Nutze Unsplash Hintergrundbilder</label>
+            </div>
+            <div class="settingsInput">
+                <input id="useLocationQuery" type="checkbox" class="controlledInput" />
+                <label id="useLocationQueryLabel" for="useLocationQuery" class="labelCheckbox" data-i18n-key="Nutze Ort für Hintergrundbilder">Nutze Ort für Hintergrundbilder</label>
+            </div>
+            <div class="settingsInput">
+                <input id="useFixedLocation" type="checkbox" class="controlledInput" />
+                <label id="useFixedLocationLabel" for="useFixedLocation" class="labelCheckbox" data-i18n-key="Nutze festen Ort">Nutze festen Ort</label>
+            </div>
+            <div class="settingsInput settingsDiv">
+                <label id="fixedLocationSelectLabel" for="fixedLocationSelect" class="labelSelect" data-i18n-key="Fester Ort">Fester Ort</label>
+                <select id="fixedLocationSelect" name="fixedLocationSelect" class="controlledInput rightSideSetting">
+                </select>
+            </div>
+            <div class="settingsInput">
+                <input id="combineLocationWeatherQuery" type="checkbox" class="controlledInput" disabled />
+                <label id="combineLocationWeatherQueryLabel" for="combineLocationWeatherQuery" class="labelCheckbox" data-i18n-key="Kombiniere Ort und Wetter">Kombiniere Ort und Wetter</label>
+            </div>
+            <div class="settingsInput">
+                <input id="useFiftyFiftyQuery" type="checkbox" class="controlledInput" disabled />
+                <label id="useFiftyFiftyQueryLabel" for="useFiftyFiftyQuery" class="labelCheckbox" data-i18n-key="50/50 Ort/Wetter">50/50 Ort/Wetter</label>
+                <i id="info5050" class="fa-solid fa-circle-info" style="font-size: 80%;margin-left: 7px;" title="Zeigt abwechselnd Bilder für den Ort oder die Witterung."></i>
+            </div>
+            <div class="settingsInput">
+                <input id="blackAndWhiteUnsplash" type="checkbox" class="controlledInput" />
+                <label id="blackAndWhiteUnsplashLabel" for="blackAndWhiteUnsplash" class="labelCheckbox" data-i18n-key="Nur Schwarz-Weiss Bilder">Nur Schwarz-Weiss Bilder</label>
+            </div>
+            <div class="settingsInput">
+                <input id="usePreferredColor" type="checkbox" class="controlledInput" />
+                <label id="usePreferredColorLabel" for="usePreferredColor" class="labelCheckbox" data-i18n-key="Eine Farbe bevorzugen">Eine Farbe bevorzugen</label>
+                <i id="infoPreferred" class="fa-solid fa-circle-info" style="margin-left:7px;font-size: 80%;" title="Ein experimentelles Feature, welches dem Nutzer den Farbfilter der Unsplash API zuführt. Gelegentlich kann es passieren, dass bei bestimmten Farben keine Bilder gefunden werden. 'Experimentell' halt!"></i>
+            </div>
+            <div class="settingsInput settingsDiv">
+                <label id="preferredColorLabel" for="preferredColor" class="labelSelect" data-i18n-key="Bevorzugte Farbe">Bevorzugte Farbe</label>
+                <select id="preferredColor" name="preferredColor" class="controlledInput rightSideSetting" disabled>
+                    <option value="black" class="i18n" data-i18n-key="Schwarz">Schwarz</option>
+                    <option value="white" class="i18n" data-i18n-key="Weiss">Weiss</option>
+                    <option value="yellow" class="i18n" data-i18n-key="Gelb">Gelb</option>
+                    <option value="orange" class="i18n" data-i18n-key="Orange">Orange</option>
+                    <option value="red" class="i18n" data-i18n-key="Rot">Rot</option>
+                    <option value="purple" class="i18n" data-i18n-key="Violett">Violett</option>
+                    <option value="magenta" class="i18n" data-i18n-key="Magenta">Magenta</option>
+                    <option value="green" class="i18n" data-i18n-key="Grün">Grün</option>
+                    <option value="teal" class="i18n" data-i18n-key="Blaugrün">Blaugrün</option>
+                    <option value="blue" class="i18n" data-i18n-key="Blau">Blau</option>
+                </select>
+            </div>
+
+            <h4 data-i18n-key="Sonstiges">Sonstiges</h4>
+            <div class="settingsInput settingsDiv">
+                <label for="reloadInterval" class="labelSelect" data-i18n-key="Aktualisierung">Aktualisierung</label>
+                <select id="reloadInterval" name="reloadInterval" class="controlledInput rightSideSetting">
+                    <option value="manual" class="i18n" data-i18n-key="Manuell">Manuell</option>
+                    <option value="1" class="i18n" data-i18n-key="Jede Minute">Jede Minute</option>
+                    <option value="2" class="i18n" data-i18n-key="Alle 2 Minuten">Alle 2 Minuten</option>
+                    <option value="5" class="i18n" data-i18n-key="Alle 5 Minuten">Alle 5 Minuten</option>
+                    <option value="10" class="i18n" data-i18n-key="Alle 10 Minuten">Alle 10 Minuten</option>
+                    <option value="15" class="i18n" data-i18n-key="Alle 15 Minuten">Alle 15 Minuten</option>
+                    <option value="30" class="i18n" data-i18n-key="Alle 30 Minuten">Alle 30 Minuten</option>
+                    <option value="45" class="i18n" data-i18n-key="Alle 45 Minuten">Alle 45 Minuten</option>
+                    <option value="60" class="i18n" data-i18n-key="Alle 60 Minuten">Alle 60 Minuten</option>
+                </select>
+            </div>
+            <div class="settingsInput settingsDiv">
+                <label for="language" class="labelSelect" data-i18n-key="Sprache">Sprache</label>
+                <select id="language" name="language" class="controlledInput rightSideSetting">
+                    <option value="de" class="i18n" data-i18n-key="Deutsch">Deutsch</option>
+                    <option value="en" class="i18n" data-i18n-key="Englisch">Englisch</option>
+                </select>
+            </div>
+            <div class="settingsInput settingsDiv">
+                <label for="units" class="labelSelect" data-i18n-key="Masseinheit">Masseinheit</label>
+                <select id="units" name="units" class="controlledInput rightSideSetting">
+                    <option value="C" class="i18n" data-i18n-key="Celsius">Celsius</option>
+                    <option value="F" class="i18n" data-i18n-key="Fahrenheit">Fahrenheit</option>
+                    <option value="K" data-i18n-key="Kelvin">Kelvin</option>
+                </select>
+            </div>
+            <div class="settingsInput settingsDiv">
+                <label for="panelBackground" class="labelColor" data-i18n-key="Hintergrundfarbe Panels">Hintergrundfarbe Panels</label>
+                <input id="panelBackground" type="color" class="controlledInput rightSideSetting" value="#1E1E1E" />
+            </div>
+            <div class="settingsInput settingsDiv">
+                <label for="panelOpacity" class="labelColor" data-i18n-key="Deckkraft">Deckkraft</label>
+                <input id="panelOpacity" type="range" class="controlledInput rightSideSetting" value="60" />
+            </div>
+        </div>
+    </div> 
+</body>
+</html>
