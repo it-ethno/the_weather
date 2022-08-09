@@ -1,6 +1,8 @@
 # The Weather / Das Wetter
 A simple HTML/JS app forecasting the weather.
 
+<img src="./images/Screenshot_small.png" alt="Screenshot Weather App">
+
 It started out as an assignment of an intermediate course in HTML and JavaScript for practicing the fetch API and traversing API responses, and soon became a complete weather app with quite some settings and features.
 
 ## Features
